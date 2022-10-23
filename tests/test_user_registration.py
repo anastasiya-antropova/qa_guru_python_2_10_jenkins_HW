@@ -1,18 +1,7 @@
-from selene import have, command
-from selene.support.shared import browser
-
 from demoqa_tests.model import app
 from demoqa_tests.model.pages import registration_form
-from demoqa_tests.model.pages.registration_form import (
-    given_opened,
-)
+
 from tests.test_data.users import student
-
-
-def test_fail_to_submit_form():
-    given_opened()
-
-
 
 def test_submit_student_registration_form():
 

@@ -62,18 +62,18 @@ def test_submit_student_registration_form():
         registration_form.submit()
 
     # THEN
-
-    registration_form.should_have_submitted(
-        [
-            ('Student Name', f'{student.name} {student.last_name}'),
-            ('Student Email', student.email),
-            ('Gender', student.gender.value),
-            ('Mobile', student.user_number),
-            ('Date of Birth', f'{student.birth_day} {student.birth_month},{student.birth_year}'),
-            ('Subjects', 'History'),
-            ('Hobbies', 'Sports'),
-            ('Picture', student.picture_file),
-            ('Address', student.current_address),
-            ('State and City', f'{student.state} {student.city}'),
-        ],
-    )
+    with allure.step("Check form results"):
+        registration_form.should_have_submitted(
+            [
+                ('Student Name', f'{student.name} {student.last_name}'),
+                ('Student Email', student.email),
+                ('Gender', student.gender.value),
+                ('Mobile', student.user_number),
+                ('Date of Birth', f'{student.birth_day} {student.birth_month},{student.birth_year}'),
+                ('Subjects', 'History'),
+                ('Hobbies', 'Sports'),
+                ('Picture', student.picture_file),
+                ('Address', student.current_address),
+                ('State and City', f'{student.state} {student.city}'),
+            ],
+        )

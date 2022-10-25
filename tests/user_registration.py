@@ -1,3 +1,5 @@
+import allure
+
 from demoqa_tests.model import app
 from demoqa_tests.model.pages import registration_form
 

@@ -1,6 +1,5 @@
-from selene.support.shared import browser
 
-def date_picker(month, year, day):
+def date_picker(month, year, day, browser):
     browser.element('#dateOfBirthInput').click()
     browser.element('.react-datepicker__month-select').send_keys(month)
     browser.element('.react-datepicker__year-select').send_keys(year)

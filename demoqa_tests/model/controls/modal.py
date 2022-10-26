@@ -1,3 +1,4 @@
-from selene.support.shared import browser
 
-dialog = browser.element('.modal-content')
+
+def modal_d(browser):
+    browser.element('.modal-content')

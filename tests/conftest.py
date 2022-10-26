@@ -5,6 +5,8 @@ from selenium.webdriver.chrome.options import Options
 from selene import Browser, Config
 from dotenv import load_dotenv #библиотека секретн
 
+from demoqa_tests.utils import attach
+
 DEFAULT_BROWSER_VERSION = "100.0"
 
 def pytest_addoption(parser):
@@ -47,11 +49,8 @@ def setup_browser(request):
     yield browser
 
 
-#@pytest.fixture(scope='function', autouse=True)
-# def browser_management(browser):
-#     browser.config.base_url = os.getenv('selene.base_url', 'https://demoqa.com')
-#     browser.config.browser_name = os.getenv('selene.browser_name', 'chrome')
-#     browser.config.hold_browser_open = (
-#         os.getenv('selene.hold_browser_open', 'false').lower() == 'true'
-#     )
-#     browser.config.timeout = float(os.getenv('selene.timeout', '3'))
+    attach.add_html(browser)
+    attach.add_screenshot(browser)
+    attach.add_logs(browser)
+    attach.add_video(browser)
+    browser.quit()

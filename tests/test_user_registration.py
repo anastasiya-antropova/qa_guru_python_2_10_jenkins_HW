@@ -42,10 +42,10 @@ def test_submit_student_registration_form(setup_browser):
         '''
         registration_form.add_subjects(student.subjects, browser)
         registration_form.set_hobbies(student.hobbies, browser)
+        registration_form.scroll_to_bottom(browser)
         registration_form.send_file(student.picture_file, browser)
         registration_form.set_field('#currentAddress', student.current_address, browser)
 
-        #registration_form.scroll_to_bottom(browser)
         registration_form.set_state(student.state, browser)
         registration_form.set_city(student.city, browser)
 

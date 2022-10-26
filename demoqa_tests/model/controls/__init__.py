@@ -1,1 +1,1 @@
-from . import dropdown, modal
+from . import dropdown

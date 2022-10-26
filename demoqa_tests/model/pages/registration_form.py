@@ -4,7 +4,7 @@ import allure
 from selene import have, command
 from selene.support.shared.jquery_style import ss
 
-from demoqa_tests.model.controls import dropdown, modal, date
+from demoqa_tests.model.controls import dropdown, date
 from demoqa_tests.utils import path
 from tests.test_data.users import Subject
 

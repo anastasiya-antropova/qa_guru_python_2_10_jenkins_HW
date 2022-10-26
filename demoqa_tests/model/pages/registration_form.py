@@ -14,19 +14,19 @@ def given_opened(browser):
     # if ads.with_(timeout=15).wait.until(have.size_greater_than_or_equal(3)):
     #     ads.perform(command.js.remove)
 
-@allure.step('Add subjects {values}')
+#@allure.step('Add subjects {values}')
 def add_subjects(values: Tuple[Subject], browser):
     for subject in values:
         browser.element('#subjectsInput').type(subject.value).press_enter()
 
-@allure.step('Change state {value}')
+#@allure.step('Change state {value}')
 def set_state(value: str, browser):
     dropdown.select(browser.element('#state'), value, browser)
 
 def set_state_with_typing(value: str, browser):
     dropdown.select_with_typing(browser.element('#reac@allure.step("Change state {values}")t-select-3-input'), value)
 
-@allure.step('Change city {value}')
+#@allure.step('Change city {value}')
 def set_city(value: str, browser):
     dropdown.select(browser.element('#city'), value, browser)
 
@@ -34,12 +34,12 @@ def set_city_with_typing(value: str, browser):
     dropdown.select_with_typing(browser.element('#react-select-4-input'), value)
 
 
-@allure.step('Scroll to bottom')
+#@allure.step('Scroll to bottom')
 def scroll_to_bottom(browser):
     browser.element('#state').perform(command.js.scroll_into_view)
 
 def should_have_submitted(data, browser):
-    rows = modal.modal_d(browser).all('tbody tr')
+    rows = browser.element('.modal-content').all('tbody tr')
     for row, value in data:
         rows.element_by(have.text(row)).all('td')[1].should(have.exact_text(value))
 

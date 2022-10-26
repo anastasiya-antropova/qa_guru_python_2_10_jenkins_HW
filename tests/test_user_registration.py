@@ -14,9 +14,7 @@ def test_submit_student_registration_form(setup_browser):
         registration_form.set_field('#firstName', student.name, browser)
         registration_form.set_field('#lastName', student.last_name, browser)
         registration_form.set_field('#userEmail', student.email, browser)
-
         registration_form.set_gender(student.gender.value, browser)
-
         '''
         # OR
         gender_male = browser.element('[for=gender-radio-1]')
@@ -36,23 +34,18 @@ def test_submit_student_registration_form(setup_browser):
         browser.all('[id^=gender-radio]').by(have.value('Male')).first.element('..').click()
         '''
         registration_form.set_field('#userNumber', student.user_number, browser)
-
+        registration_form.scroll_to_bottom(browser)
         registration_form.set_birth_date(student.birth_month, student.birth_year, student.birth_day, browser)
         '''
         # OR something like
         browser.element('#dateOfBirthInput').send_keys(Keys.CONTROL, 'a').type('28 Mar 1995').press_enter()
         '''
-
         registration_form.add_subjects(student.subjects, browser)
-
         registration_form.set_hobbies(student.hobbies, browser)
-
         registration_form.send_file(student.picture_file, browser)
-
         registration_form.set_field('#currentAddress', student.current_address, browser)
 
         registration_form.scroll_to_bottom(browser)
-
         registration_form.set_state(student.state, browser)
         registration_form.set_city(student.city, browser)
 

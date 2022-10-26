@@ -1,4 +1,4 @@
-
-
-def modal_d(browser):
-    browser.element('.modal-content')
+#
+#
+# def modal_def(browser):
+#     browser.element('.modal-content')
